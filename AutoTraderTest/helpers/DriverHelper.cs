@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using System;
 using System.Configuration;
@@ -31,6 +32,10 @@ namespace AutoTraderTest.helpers
                     case "edge":
                         new DriverManager().SetUpDriver(new EdgeConfig());
                         webdriver = new EdgeDriver();
+                        break;
+                    case "firefox":
+                        new DriverManager().SetUpDriver(new FirefoxConfig());
+                        webdriver = new FirefoxDriver();
                         break;
                     default:
                         throw new NotSupportedException("Browser not supported");
